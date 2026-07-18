@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Navbar from '../components/Navbar'
 import WhatsAppButton from '../components/WhatsAppButton'
+import { supabase } from '../lib/supabase'
 
 const contactItems = [
   {
@@ -38,15 +39,31 @@ const hourRows = [
 export default function Contact() {
   const [status, setStatus] = useState('idle') // idle | sending | success
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     if (status === 'sending') return
     setStatus('sending')
-    setTimeout(() => {
+
+    const form = e.target
+    const payload = {
+      name: form.name.value,
+      email: form.email.value,
+      company: form.company.value || null,
+      subject: form.subject.value,
+      message: form.message.value,
+    }
+
+    try {
+      const { error } = await supabase.from('contact_messages').insert(payload)
+      if (error) throw error
       setStatus('success')
-      e.target.reset()
+      form.reset()
       setTimeout(() => setStatus('idle'), 3000)
-    }, 1500)
+    } catch (err) {
+      console.error('Failed to send message:', err)
+      setStatus('error')
+      setTimeout(() => setStatus('idle'), 3000)
+    }
   }
 
   return (
@@ -207,7 +224,11 @@ export default function Contact() {
                       type="submit"
                       disabled={status !== 'idle'}
                       className={`w-full md:w-auto text-on-primary px-10 py-4 rounded-xl font-bold transition-all flex items-center justify-center gap-2 group shadow-lg ${
-                        status === 'success' ? 'bg-emerald-600' : 'bg-primary hover:bg-primary-container'
+                        status === 'success'
+                          ? 'bg-emerald-600'
+                          : status === 'error'
+                          ? 'bg-error hover:bg-error'
+                          : 'bg-primary hover:bg-primary-container'
                       }`}
                     >
                       {status === 'idle' && (
@@ -226,6 +247,12 @@ export default function Contact() {
                         <>
                           <span className="material-symbols-outlined">check_circle</span>
                           <span>Berhasil Terkirim!</span>
+                        </>
+                      )}
+                      {status === 'error' && (
+                        <>
+                          <span className="material-symbols-outlined">error</span>
+                          <span>Gagal, Coba Lagi</span>
                         </>
                       )}
                     </button>
