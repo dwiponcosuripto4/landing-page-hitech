@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+
+<html class="light" lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Hubungi Kami - PT. HiTech Aksara Digital</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+        }
+        .blueprint-grid {
+            background-image: radial-gradient(#0f4c81 0.5px, transparent 0.5px);
+            background-size: 24px 24px;
+            opacity: 0.05;
+        }
+        .contact-shadow {
+            box-shadow: 0 4px 6px -1px rgba(15, 76, 129, 0.05), 0 2px 4px -1px rgba(15, 76, 129, 0.03);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary": "#2c3348",
+                        "inverse-primary": "#a0c9ff",
+                        "tertiary-fixed": "#dae2fd",
+                        "on-tertiary": "#ffffff",
+                        "on-surface": "#191c1e",
+                        "on-primary-container": "#8ebdf9",
+                        "surface-container": "#eceef0",
+                        "outline-variant": "#c2c7d1",
+                        "on-error": "#ffffff",
+                        "on-background": "#191c1e",
+                        "background": "#f7f9fb",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary": "#0058be",
+                        "on-primary-fixed": "#001c37",
+                        "tertiary-fixed-dim": "#bec6e0",
+                        "on-secondary": "#ffffff",
+                        "primary-container": "#0f4c81",
+                        "secondary-container": "#2170e4",
+                        "on-tertiary-container": "#b2bad3",
+                        "inverse-surface": "#2d3133",
+                        "on-primary-fixed-variant": "#07497d",
+                        "surface": "#f7f9fb",
+                        "surface-container-highest": "#e0e3e5",
+                        "tertiary-container": "#424a5f",
+                        "on-error-container": "#93000a",
+                        "on-surface-variant": "#42474f",
+                        "inverse-on-surface": "#eff1f3",
+                        "on-secondary-fixed-variant": "#004395",
+                        "primary-fixed-dim": "#a0c9ff",
+                        "surface-tint": "#2d6197",
+                        "outline": "#727780",
+                        "surface-dim": "#d8dadc",
+                        "primary": "#00355f",
+                        "surface-container-low": "#f2f4f6",
+                        "secondary-fixed-dim": "#adc6ff",
+                        "on-secondary-container": "#fefcff",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed": "#131b2e",
+                        "on-secondary-fixed": "#001a42",
+                        "on-primary": "#ffffff",
+                        "surface-container-high": "#e6e8ea",
+                        "secondary-fixed": "#d8e2ff",
+                        "primary-fixed": "#d2e4ff",
+                        "surface-bright": "#f7f9fb",
+                        "error": "#ba1a1a",
+                        "surface-variant": "#e0e3e5",
+                        "on-tertiary-fixed-variant": "#3f465c"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "64px",
+                        "gutter": "24px",
+                        "container-max": "1280px",
+                        "margin-mobile": "20px",
+                        "base": "8px",
+                        "section-gap": "120px"
+                    },
+                    "fontFamily": {
+                        "headline-xl": ["Inter"],
+                        "label-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "display-lg-mobile": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-xl": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "display-lg": ["60px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-lg": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "display-lg-mobile": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-surface text-on-surface font-body-md overflow-x-hidden">
+<!-- Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 bg-primary/90 backdrop-blur-md transition-all duration-300 ease-in-out shadow-md">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop flex justify-between items-center h-20">
+<a class="font-headline-lg text-headline-lg font-bold text-on-primary tracking-tight" href="#">HiTech Aksara Digital</a>
+<!-- Mobile Menu Toggle -->
+<button class="md:hidden text-on-primary" id="mobile-menu-btn">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<!-- Desktop Links -->
+<div class="hidden md:flex gap-8 items-center">
+<a class="font-body-md text-on-primary/80 hover:text-on-primary transition-colors" href="#">Beranda</a>
+<a class="font-body-md text-on-primary/80 hover:text-on-primary transition-colors" href="#">Profil</a>
+<a class="font-body-md text-on-primary/80 hover:text-on-primary transition-colors" href="#">Layanan</a>
+<a class="font-body-md text-on-primary/80 hover:text-on-primary transition-colors" href="#">Portofolio</a>
+<a class="font-body-md text-on-primary/80 hover:text-on-primary transition-colors" href="#">Blog</a>
+<a class="font-body-md text-on-primary/80 hover:text-on-primary transition-colors" href="#">Karir</a>
+<a class="bg-secondary-container text-on-secondary px-6 py-2.5 rounded-full font-bold hover:scale-105 transition-transform duration-200" href="#">Hubungi Kami</a>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden bg-primary text-on-primary">
+<div class="absolute inset-0 blueprint-grid"></div>
+
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop relative z-10">
+<div class="max-w-3xl">
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg mb-6 leading-tight">Hubungi Kami</h1>
+<p class="font-body-lg text-body-lg text-on-primary/90 mb-8 max-w-2xl">Siap mengakselerasi transformasi digital bisnis Anda? Mari berdiskusi tentang bagaimana solusi teknologi kami dapat membawa perusahaan Anda ke level berikutnya.</p>
+<div class="flex flex-wrap gap-4">
+<div class="flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-2 rounded-lg border border-white/20">
+<span class="material-symbols-outlined text-secondary-fixed">verified</span>
+<span class="text-label-md font-label-md">Konsultasi Gratis</span>
+</div>
+<div class="flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-2 rounded-lg border border-white/20">
+<span class="material-symbols-outlined text-secondary-fixed">speed</span>
+<span class="text-label-md font-label-md">Respon Cepat 24 Jam</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Main Content Section -->
+<section class="py-section-gap relative">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Contact Info Column -->
+<div class="lg:col-span-5 space-y-8">
+<div>
+<h2 class="font-headline-xl text-headline-xl text-primary mb-4">Informasi Kontak</h2>
+<p class="font-body-md text-on-surface-variant mb-8">Kunjungi kantor kami atau hubungi kami melalui kanal komunikasi di bawah ini.</p>
+</div>
+<div class="space-y-6">
+<!-- Address -->
+<div class="flex gap-4 p-6 rounded-2xl bg-white contact-shadow border-l-4 border-primary hover:translate-x-1 transition-transform duration-200">
+<div class="w-12 h-12 rounded-full bg-primary-fixed flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-primary">location_on</span>
+</div>
+<div>
+<h3 class="font-headline-lg text-headline-lg text-primary mb-1">Kantor Pusat</h3>
+<p class="text-on-surface-variant font-body-md">Gedung Aksara Digital, Lt. 12<br/>Jl. Sudirman Kav. 52, Jakarta Selatan</p>
+</div>
+</div>
+<!-- Phone -->
+<div class="flex gap-4 p-6 rounded-2xl bg-white contact-shadow border-l-4 border-secondary hover:translate-x-1 transition-transform duration-200">
+<div class="w-12 h-12 rounded-full bg-secondary-fixed flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-secondary">call</span>
+</div>
+<div>
+<h3 class="font-headline-lg text-headline-lg text-secondary mb-1">Telepon</h3>
+<p class="text-on-surface-variant font-body-md">+62 21 5555 1234</p>
+</div>
+</div>
+<!-- Email -->
+<div class="flex gap-4 p-6 rounded-2xl bg-white contact-shadow border-l-4 border-tertiary-container hover:translate-x-1 transition-transform duration-200">
+<div class="w-12 h-12 rounded-full bg-tertiary-fixed flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-tertiary">mail</span>
+</div>
+<div>
+<h3 class="font-headline-lg text-headline-lg text-tertiary mb-1">Email</h3>
+<p class="text-on-surface-variant font-body-md">contact@hitechaksara.co.id</p>
+</div>
+</div>
+<!-- Operational Hours -->
+<div class="flex gap-4 p-6 rounded-2xl bg-surface-container-low border border-outline-variant/30">
+<div class="w-12 h-12 rounded-full bg-surface-container-highest flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-on-surface-variant">schedule</span>
+</div>
+<div>
+<h3 class="font-headline-lg text-headline-lg text-on-surface mb-2">Jam Operasional</h3>
+<ul class="space-y-1 text-on-surface-variant font-body-md">
+<li class="flex justify-between gap-8"><span>Senin - Jumat</span> <span class="font-bold">08:00 - 18:00</span></li>
+<li class="flex justify-between gap-8"><span>Sabtu</span> <span class="font-bold">09:00 - 14:00</span></li>
+<li class="flex justify-between gap-8 text-error"><span>Minggu</span> <span class="font-bold">Tutup</span></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<!-- Contact Form Column -->
+<div class="lg:col-span-7">
+<div class="bg-white rounded-2xl p-8 md:p-12 contact-shadow border border-outline-variant/20">
+<h2 class="font-headline-xl text-headline-xl text-primary mb-8">Kirim Pesan</h2>
+<form class="grid grid-cols-1 md:grid-cols-2 gap-6" id="contactForm">
+<div class="flex flex-col gap-2">
+<label class="text-label-md font-label-md text-on-surface-variant" for="name">Nama Lengkap</label>
+<input class="bg-surface-container-low border-outline-variant rounded-lg p-3 focus:ring-2 focus:ring-primary focus:border-primary transition-all" id="name" placeholder="Masukkan nama Anda" required="" type="text"/>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-label-md font-label-md text-on-surface-variant" for="email">Email Bisnis</label>
+<input class="bg-surface-container-low border-outline-variant rounded-lg p-3 focus:ring-2 focus:ring-primary focus:border-primary transition-all" id="email" placeholder="nama@perusahaan.com" required="" type="email"/>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-label-md font-label-md text-on-surface-variant" for="company">Perusahaan</label>
+<input class="bg-surface-container-low border-outline-variant rounded-lg p-3 focus:ring-2 focus:ring-primary focus:border-primary transition-all" id="company" placeholder="Nama instansi/perusahaan" type="text"/>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-label-md font-label-md text-on-surface-variant" for="subject">Subjek</label>
+<select class="bg-surface-container-low border-outline-variant rounded-lg p-3 focus:ring-2 focus:ring-primary focus:border-primary transition-all" id="subject">
+<option>Konsultasi Digital</option>
+<option>Kemitraan</option>
+<option>Dukungan Teknis</option>
+<option>Lainnya</option>
+</select>
+</div>
+<div class="flex flex-col gap-2 md:col-span-2">
+<label class="text-label-md font-label-md text-on-surface-variant" for="message">Pesan Anda</label>
+<textarea class="bg-surface-container-low border-outline-variant rounded-lg p-3 focus:ring-2 focus:ring-primary focus:border-primary transition-all" id="message" placeholder="Bagaimana kami bisa membantu Anda?" required="" rows="5"></textarea>
+</div>
+<div class="md:col-span-2 pt-4">
+<button class="w-full md:w-auto bg-primary text-on-primary px-10 py-4 rounded-xl font-bold hover:bg-primary-container transition-all flex items-center justify-center gap-2 group shadow-lg" type="submit">
+<span>Kirim Pesan</span>
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">send</span>
+</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Map Section -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-section-gap">
+<div class="relative w-full h-[500px] rounded-2xl overflow-hidden contact-shadow group">
+<!-- Simulated Map Container -->
+<div class="w-full h-full bg-surface-container-highest relative" data-location="Jakarta Selatan" style="">
+<div class="w-full h-full bg-cover bg-center grayscale group-hover:grayscale-0 transition-all duration-700" data-alt="A highly detailed 3D architectural map visualization of Jakarta Sudirman business district. The aesthetic is clean and corporate, featuring sleek glass skyscrapers and the iconic Sudirman street layout. The lighting is bright day-time city light with a sophisticated primary navy and light grey color palette. A digital blueprint overlay subtly highlights the 'Gedung Aksara Digital' as a focal point with a glowing technical icon." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCsLoiz4Duw57HrnZXaN7SqvRi46pIapXIdGPxxC6MeNOQvJquO2WVR8rz4eNhUq2qna_v9-By35ED3-jts49O2zt44lPVAkGlxaRCU8WDGN7G4SskH2NCB0VW2BiNd2e7XktmImcPxCyHaWSat1N53v3Z0Tn4DLs4GYJudF-9LXUUCYw39skI6jh-BKsW9trx7WyypLxvrytVcJDSc9gdPX__1YQFe4SJ7WHzGEcwo_YIFj8pZWUTh210TqDsV0KDO1Fs3LGKZEWE')"></div>
+<!-- Map Overlay Badge -->
+<div class="absolute top-8 left-8 p-6 glass-card rounded-xl max-w-sm">
+<h4 class="font-headline-lg text-primary mb-2">Lokasi Strategis</h4>
+<p class="text-on-surface-variant font-body-md mb-4">Terletak di pusat bisnis Jakarta, memudahkan akses kolaborasi bagi klien-klien korporat kami.</p>
+<a class="text-secondary font-bold flex items-center gap-2 hover:underline" href="https://maps.google.com" target="_blank">
+                        Buka di Google Maps
+                        <span class="material-symbols-outlined text-sm">open_in_new</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-tertiary text-on-tertiary">
+<div class="max-w-container-max mx-auto px-margin-desktop py-section-gap grid grid-cols-1 md:grid-cols-4 gap-gutter">
+<div class="space-y-6">
+<span class="font-headline-lg text-headline-lg font-bold text-on-tertiary">HiTech Aksara Digital</span>
+<p class="text-on-tertiary/70 font-body-md">Membangun masa depan digital Indonesia melalui solusi teknologi yang inovatif dan terpercaya.</p>
+</div>
+<div class="space-y-4">
+<h4 class="font-bold text-lg">Perusahaan</h4>
+<ul class="space-y-2">
+<li><a class="text-on-tertiary/70 hover:text-on-tertiary hover:translate-x-1 transition-all inline-block" href="#">Tentang Kami</a></li>
+<li><a class="text-on-tertiary/70 hover:text-on-tertiary hover:translate-x-1 transition-all inline-block" href="#">Karir IT</a></li>
+<li><a class="text-on-tertiary/70 hover:text-on-tertiary hover:translate-x-1 transition-all inline-block" href="#">Blog</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<h4 class="font-bold text-lg">Layanan</h4>
+<ul class="space-y-2">
+<li><a class="text-on-tertiary/70 hover:text-on-tertiary hover:translate-x-1 transition-all inline-block" href="#">Layanan Digital</a></li>
+<li><a class="text-on-tertiary/70 hover:text-on-tertiary hover:translate-x-1 transition-all inline-block" href="#">Studi Kasus</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<h4 class="font-bold text-lg">Legal</h4>
+<ul class="space-y-2">
+<li><a class="text-on-tertiary/70 hover:text-on-tertiary hover:translate-x-1 transition-all inline-block" href="#">Kebijakan Privasi</a></li>
+<li><a class="text-on-tertiary/70 hover:text-on-tertiary hover:translate-x-1 transition-all inline-block" href="#">Syarat &amp; Ketentuan</a></li>
+</ul>
+</div>
+</div>
+<div class="max-w-container-max mx-auto px-margin-desktop py-8 border-t border-white/10 text-center md:text-left">
+<p class="text-on-tertiary/60 text-body-md">© 2024 PT. HiTech Aksara Digital. All rights reserved.</p>
+</div>
+</footer>
+<!-- Floating WhatsApp Button -->
+<a class="fixed bottom-8 right-8 z-[100] w-16 h-16 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300 group" href="https://wa.me/622155551234" target="_blank">
+<span class="absolute -top-12 right-0 bg-white text-on-surface text-label-md py-2 px-4 rounded-lg shadow-xl opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap border border-outline-variant pointer-events-none">Chat Sekarang via WhatsApp</span>
+<svg fill="currentColor" height="32" viewbox="0 0 24 24" width="32" xmlns="http://www.w3.org/2000/svg">
+<path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"></path>
+</svg>
+</a>
+<script>
+        // Form Interaction
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const btn = contactForm.querySelector('button');
+            const originalText = btn.innerHTML;
+            
+            btn.disabled = true;
+            btn.innerHTML = `<span class="material-symbols-outlined animate-spin">sync</span> Mengirim...`;
+            
+            setTimeout(() => {
+                btn.innerHTML = `<span class="material-symbols-outlined">check_circle</span> Berhasil Terkirim!`;
+                btn.classList.replace('bg-primary', 'bg-emerald-600');
+                contactForm.reset();
+                
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.classList.replace('bg-emerald-600', 'bg-primary');
+                    btn.disabled = false;
+                }, 3000);
+            }, 1500);
+        });
+
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('py-2', 'bg-primary/95');
+                nav.classList.remove('py-0');
+            } else {
+                nav.classList.remove('py-2', 'bg-primary/95');
+            }
+        });
+
+        // Mobile Menu Logic
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        mobileBtn.addEventListener('click', () => {
+            // Simple alert for prototype, normally would toggle a menu div
+            alert('Mobile menu feature would expand navigation links here.');
+        });
+    </script>
+</body></html>

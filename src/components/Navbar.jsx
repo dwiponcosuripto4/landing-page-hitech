@@ -1,5 +1,14 @@
 import { useEffect, useState } from 'react'
-import { navLinks } from '../data'
+import { Link, NavLink } from 'react-router-dom'
+
+const navLinks = [
+  { label: 'Beranda', href: '/' },
+  { label: 'Profil', href: '/profil' },
+  { label: 'Layanan', href: '/layanan' },
+  { label: 'Portofolio', href: '/portofolio' },
+  { label: 'Blog', href: '/blog' },
+  { label: 'Karir', href: '/karir' },
+]
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
@@ -11,34 +20,39 @@ export default function Navbar() {
   }, [])
 
   return (
-    <nav
-      className={`fixed top-0 w-full z-50 bg-primary/90 backdrop-blur-md transition-all duration-300 ease-in-out shadow-md ${
-        scrolled ? 'py-2' : 'py-4'
-      }`}
-    >
-      <div className="max-w-container-max mx-auto px-margin-desktop flex justify-between items-center h-20">
-        <div className="font-headline-lg text-headline-lg font-bold text-on-primary tracking-tight">
+    <header className="fixed top-0 w-full z-50 bg-primary/90 backdrop-blur-md shadow-md">
+      <nav className="max-w-container-max mx-auto px-margin-desktop flex justify-between items-center h-20">
+        <Link to="/" className="font-headline-lg text-headline-lg font-bold text-on-primary tracking-tight">
           HiTech Aksara Digital
-        </div>
-        <div className="hidden md:flex gap-8 items-center">
+        </Link>
+        <ul className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              className={`font-body-md text-body-md transition-colors ${
-                link.label === 'Portofolio'
-                  ? 'text-secondary-fixed font-bold border-b-2 border-secondary-fixed pb-1'
-                  : 'text-on-primary/80 hover:text-on-primary'
-              }`}
-            >
-              {link.label}
-            </a>
+            <li key={link.label}>
+              <NavLink
+                to={link.href}
+                className={({ isActive }) =>
+                  `font-body-md text-body-md transition-colors hover:scale-105 transition-transform duration-200 ${
+                    isActive
+                      ? 'text-secondary-fixed font-bold border-b-2 border-secondary-fixed pb-1'
+                      : 'text-on-primary/80 hover:text-on-primary'
+                  }`
+                }
+              >
+                {link.label}
+              </NavLink>
+            </li>
           ))}
-        </div>
-        <button className="bg-secondary-container text-on-secondary-container px-6 py-2 rounded-lg font-label-md text-label-md hover:scale-105 transition-transform duration-200">
+        </ul>
+        <Link
+          to="/kontak"
+          className="hidden md:block bg-secondary-container text-on-secondary-container px-6 py-2.5 rounded-full font-label-md text-label-md font-bold hover:scale-105 transition-transform"
+        >
           Hubungi Kami
+        </Link>
+        <button className="md:hidden text-on-primary">
+          <span className="material-symbols-outlined">menu</span>
         </button>
-      </div>
-    </nav>
+      </nav>
+    </header>
   )
 }

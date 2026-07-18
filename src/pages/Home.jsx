@@ -1,4 +1,4 @@
-﻿import HomeNavbar from '../components/HomeNavbar'
+import Navbar from '../components/Navbar'
 import Hero from '../components/Hero'
 import ValueProps from '../components/ValueProps'
 import Services from '../components/Services'
@@ -10,7 +10,7 @@ import WhatsAppButton from '../components/WhatsAppButton'
 export default function Home() {
   return (
     <div className="bg-background text-on-background font-body-md selection:bg-secondary-fixed selection:text-on-secondary-fixed">
-      <HomeNavbar />
+      <Navbar />
       <main>
         <Hero />
         <ValueProps />

@@ -21,6 +21,23 @@
     background: radial-gradient(circle at top right, #0f4c81, #00355f);
   }
 
+    .glass-card {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(226, 232, 240, 0.8);
+  }
+
+  .blueprint-grid {
+    background-image: radial-gradient(#0f4c81 0.5px, transparent 0.5px);
+    background-size: 24px 24px;
+    opacity: 0.05;
+  }
+
+  .contact-shadow {
+    box-shadow: 0 4px 6px -1px rgba(15, 76, 129, 0.05),
+      0 2px 4px -1px rgba(15, 76, 129, 0.03);
+  }
+
   .tonal-layer-1 {
     background: #ffffff;
     border: 1px solid #e2e8f0;
