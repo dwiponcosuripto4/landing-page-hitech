@@ -11,10 +11,14 @@
 }
 
 @layer components {
-  .material-symbols-outlined {
+    .material-symbols-outlined {
     font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
     font-family: 'Material Symbols Outlined';
     user-select: none;
+  }
+
+  .hero-gradient {
+    background: radial-gradient(circle at top right, #0f4c81, #00355f);
   }
 
   .tonal-layer-1 {
