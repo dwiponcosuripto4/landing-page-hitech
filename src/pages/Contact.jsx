@@ -46,15 +46,15 @@ export default function Contact() {
 
     const form = e.target
     const payload = {
-      name: form.name.value,
+      full_name: form.name.value,
       email: form.email.value,
-      company: form.company.value || null,
       subject: form.subject.value,
       message: form.message.value,
+      consent: form.consent?.checked ?? false,
     }
 
     try {
-      const { error } = await supabase.from('contact_messages').insert(payload)
+      const { error } = await supabase.from('contacts').insert(payload)
       if (error) throw error
       setStatus('success')
       form.reset()
@@ -183,17 +183,6 @@ export default function Contact() {
                     />
                   </div>
                   <div className="flex flex-col gap-2">
-                    <label className="text-label-md font-label-md text-on-surface-variant" htmlFor="company">
-                      Perusahaan
-                    </label>
-                    <input
-                      className="bg-surface-container-low border-outline-variant rounded-lg p-3 focus:ring-2 focus:ring-primary focus:border-primary transition-all"
-                      id="company"
-                      placeholder="Nama instansi/perusahaan"
-                      type="text"
-                    />
-                  </div>
-                  <div className="flex flex-col gap-2">
                     <label className="text-label-md font-label-md text-on-surface-variant" htmlFor="subject">
                       Subjek
                     </label>
@@ -206,6 +195,16 @@ export default function Contact() {
                       <option>Dukungan Teknis</option>
                       <option>Lainnya</option>
                     </select>
+                  </div>
+                  <div className="md:col-span-2 flex items-center gap-3">
+                    <input
+                      className="w-4 h-4 accent-primary"
+                      id="consent"
+                      type="checkbox"
+                    />
+                    <label className="text-label-md font-label-md text-on-surface-variant" htmlFor="consent">
+                      Saya menyetujui data saya disimpan untuk keperluan follow-up.
+                    </label>
                   </div>
                   <div className="flex flex-col gap-2 md:col-span-2">
                     <label className="text-label-md font-label-md text-on-surface-variant" htmlFor="message">

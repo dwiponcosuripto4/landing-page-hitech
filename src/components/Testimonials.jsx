@@ -1,6 +1,9 @@
+import { useEffect, useState } from 'react'
+import { supabase } from '../lib/supabase'
+
 const clients = [
   {
-    src: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDmsIUhPdMo2IeiPAGXd-6PIuGoBwvZDZlkRwlYYVZ49SvBaL3Z54aob2ZP8bsdGyCR1Qgm9iOyKPLUZtRWG3qMWeDgP1EndKIyx8iRGwqQ9-JCtqgvqOZmwS6sCRaf0W9DADQIdTzlds5LP8WRXECT96nsGQZQVkoAtsfAx0hQYI3TLUn5ptiIuSeeOeOOBvX6JXZM30LAFcmGyBegqbSHEVm74HcSA3XTK8IbFozxaKwvxe1nkWJRMwWdLQxTB7mDQWusha1WbMI',
+    src: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDmsIUhPdMo2IeiPAGXd-6PIuGoBwvZDZlkRwlYYVZ49SvBaL3Z54aob2ZP8bsdGyCR1Qgm9iOyKPLUZtRWG3qMWeDgP1EndKIyx8iRGwqQ9-JCtqgvqOZmwS6sCRaf0W9DADQIdTzlds5LP8WRXECT96nsGQZVkoAtsfAx0hQYI3TLUn5ptiIuSeeOeOOBvX6JXZM30LAFcmGyBegqbSHEVm74HcSA3XTK8IbFozxaKwvxe1nkWJRMwWdLQxTB7mDQWusha1WbMI',
     alt: 'Logo bank korporat',
   },
   {
@@ -17,7 +20,7 @@ const clients = [
   },
 ]
 
-const testimonials = [
+const fallbackTestimonials = [
   {
     img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDKta8RiYH0S8iwI7oDjkng6TUP6U80R3qjzBTb-QJWA-AdrHVt1RtmypJgIkpZhjfKKNAmCa5eRHMMNuY_tFey68-E_cbk4ZPSEQfjM182UnjqffFU82wpw8FWv6MrE5bdqEgATdmH29OeJFlGSqH6Lkz5sCZwrWOwAeq0L5v0ofaZzvGhUOM5JLQmAaQw5nl4KtvzFO4fibqE1f1H3I-cLaacg58lrn0dOtbLSoIugCSKi39_bHqI8uWU5MnV6lTFysuXpNpFnHM',
     name: 'Siti Rahmawati',
@@ -35,6 +38,32 @@ const testimonials = [
 ]
 
 export default function Testimonials() {
+  const [testimonials, setTestimonials] = useState(fallbackTestimonials)
+
+  useEffect(() => {
+    let active = true
+    supabase
+      .from('testimonials')
+      .select('*')
+      .eq('is_active', true)
+      .order('created_at', { ascending: true })
+      .then(({ data, error }) => {
+        if (!active) return
+        if (error || !data || data.length === 0) return
+        setTestimonials(
+          data.map((t) => ({
+            img: t.avatar_url,
+            name: t.name,
+            role: t.role,
+            quote: `"${t.quote}"`,
+          }))
+        )
+      })
+    return () => {
+      active = false
+    }
+  }, [])
+
   return (
     <section className="py-section-gap">
       <div className="max-w-container-max mx-auto px-margin-desktop">
@@ -69,3 +98,4 @@ export default function Testimonials() {
     </section>
   )
 }
+

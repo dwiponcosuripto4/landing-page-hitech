@@ -4,116 +4,130 @@
 -- ============================================================
 
 -- ------------------------------------------------------------
---  contact_messages
+--  contacts
 --  Stores submissions from the "Hubungi Kami" contact form
 -- ------------------------------------------------------------
-create table if not exists public.contact_messages (
+create table if not exists public.contacts (
   id          bigint generated always as identity primary key,
-  name        text        not null,
+  full_name   text        not null,
   email       text        not null,
-  company     text,
   subject     text        not null default 'Konsultasi Digital',
   message     text        not null,
-  status      text        not null default 'new'
-                check (status in ('new', 'read', 'replied', 'archived')),
-  created_at  timestamptz not null default now(),
-  updated_at  timestamptz not null default now()
-);
-
--- ------------------------------------------------------------
---  newsletter_subscribers
---  Optional: capture newsletter / early-access signups
--- ------------------------------------------------------------
-create table if not exists public.newsletter_subscribers (
-  id          bigint generated always as identity primary key,
-  email       text not null unique,
+  consent     boolean     not null default false,
   created_at  timestamptz not null default now()
 );
 
 -- ------------------------------------------------------------
---  project_inquiries
---  Tracks interest on specific portfolio / service items
+--  projects
+--  Showcase projects displayed on the Portofolio page
 -- ------------------------------------------------------------
-create table if not exists public.project_inquiries (
-  id           bigint generated always as identity primary key,
-  name         text        not null,
-  email        text        not null,
-  project      text,
-  message      text,
-  created_at   timestamptz not null default now()
+create table if not exists public.projects (
+  id          bigint generated always as identity primary key,
+  title       text        not null,
+  category    text        not null,
+  description text,
+  image_url   text,
+  stat        text,
+  is_active   boolean     not null default true,
+  created_at  timestamptz not null default now()
+);
+
+-- ------------------------------------------------------------
+--  testimonials
+--  Client testimonials shown on the Beranda (home) page
+-- ------------------------------------------------------------
+create table if not exists public.testimonials (
+  id          bigint generated always as identity primary key,
+  name        text        not null,
+  role        text        not null,
+  company     text,
+  quote       text        not null,
+  avatar_url  text,
+  is_active   boolean     not null default true,
+  created_at  timestamptz not null default now()
+);
+
+-- ------------------------------------------------------------
+--  services
+--  Company service offerings (used by the Layanan page)
+-- ------------------------------------------------------------
+create table if not exists public.services (
+  id          bigint generated always as identity primary key,
+  title       text        not null,
+  description text        not null,
+  icon        text,
+  sort_order  integer     not null default 0,
+  is_active   boolean     not null default true,
+  created_at  timestamptz not null default now()
 );
 
 -- ------------------------------------------------------------
 --  Row Level Security
---  Anonymous anon key may INSERT (public contact form) but
---  cannot read/modify other rows. Authenticated admins
---  (role = 'admin') get full access via a separate policy.
 -- ------------------------------------------------------------
-alter table public.contact_messages        enable row level security;
-alter table public.newsletter_subscribers enable row level security;
-alter table public.project_inquiries      enable row level security;
+alter table public.contacts      enable row level security;
+alter table public.projects      enable row level security;
+alter table public.testimonials  enable row level security;
+alter table public.services      enable row level security;
 
 -- Allow anonymous INSERT on the public contact form
-drop policy if exists "allow anon insert contact_messages" on public.contact_messages;
-create policy "allow anon insert contact_messages"
-  on public.contact_messages
+drop policy if exists "allow anon insert contacts" on public.contacts;
+create policy "allow anon insert contacts"
+  on public.contacts
   for insert
   to anon
   with check (true);
 
-drop policy if exists "allow anon insert newsletter_subscribers" on public.newsletter_subscribers;
-create policy "allow anon insert newsletter_subscribers"
-  on public.newsletter_subscribers
-  for insert
+-- Allow anonymous read on public content
+drop policy if exists "allow anon read projects" on public.projects;
+create policy "allow anon read projects"
+  on public.projects
+  for select
   to anon
-  with check (true);
+  using (is_active = true);
 
-drop policy if exists "allow anon insert project_inquiries" on public.project_inquiries;
-create policy "allow anon insert project_inquiries"
-  on public.project_inquiries
-  for insert
+drop policy if exists "allow anon read testimonials" on public.testimonials;
+create policy "allow anon read testimonials"
+  on public.testimonials
+  for select
   to anon
-  with check (true);
+  using (is_active = true);
+
+drop policy if exists "allow anon read services" on public.services;
+create policy "allow anon read services"
+  on public.services
+  for select
+  to anon
+  using (is_active = true);
 
 -- Admins (authenticated, role = 'admin') can manage everything
-drop policy if exists "admin full access contact_messages" on public.contact_messages;
-create policy "admin full access contact_messages"
-  on public.contact_messages
+drop policy if exists "admin full access contacts" on public.contacts;
+create policy "admin full access contacts"
+  on public.contacts
   for all
   to authenticated
-  using (auth.jwt() ->> 'app_metadata' ->> 'role' = 'admin')
-  with check (auth.jwt() ->> 'app_metadata' ->> 'role' = 'admin');
+  using ((auth.jwt() -> 'app_metadata' ->> 'role') = 'admin')
+  with check ((auth.jwt() -> 'app_metadata' ->> 'role') = 'admin');
 
-drop policy if exists "admin full access newsletter_subscribers" on public.newsletter_subscribers;
-create policy "admin full access newsletter_subscribers"
-  on public.newsletter_subscribers
+drop policy if exists "admin full access projects" on public.projects;
+create policy "admin full access projects"
+  on public.projects
   for all
   to authenticated
-  using (auth.jwt() ->> 'app_metadata' ->> 'role' = 'admin')
-  with check (auth.jwt() ->> 'app_metadata' ->> 'role' = 'admin');
+  using ((auth.jwt() -> 'app_metadata' ->> 'role') = 'admin')
+  with check ((auth.jwt() -> 'app_metadata' ->> 'role') = 'admin');
 
-drop policy if exists "admin full access project_inquiries" on public.project_inquiries;
-create policy "admin full access project_inquiries"
-  on public.project_inquiries
+drop policy if exists "admin full access testimonials" on public.testimonials;
+create policy "admin full access testimonials"
+  on public.testimonials
   for all
   to authenticated
-  using (auth.jwt() ->> 'app_metadata' ->> 'role' = 'admin')
-  with check (auth.jwt() ->> 'app_metadata' ->> 'role' = 'admin');
+  using ((auth.jwt() -> 'app_metadata' ->> 'role') = 'admin')
+  with check ((auth.jwt() -> 'app_metadata' ->> 'role') = 'admin');
 
--- ------------------------------------------------------------
---  Updated-at trigger helper
--- ------------------------------------------------------------
-create or replace function public.set_updated_at()
-returns trigger
-language plpgsql
-as $$
-begin
-  new.updated_at = now();
-  return new;
-end;
-$$;
-
-drop trigger if exists trg_contact_messages_updated_at on public.contact_messages;
-create trigger trg_contact_messages_updated_at
-  before update on public.contact_messages
-  for each row execute function public.set_updated_at();
+drop policy if exists "admin full access services" on public.services;
+create policy "admin full access services"
+  on public.services
+  for all
+  to authenticated
+  using ((auth.jwt() -> 'app_metadata' ->> 'role') = 'admin')
+  with check ((auth.jwt() -> 'app_metadata' ->> 'role') = 'admin');
