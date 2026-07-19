@@ -2,7 +2,7 @@ export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center pt-20 overflow-hidden hero-gradient">
       <div className="absolute inset-0 opacity-20 pointer-events-none" />
-      <div className="max-w-container-max mx-auto px-margin-desktop grid grid-cols-1 lg:grid-cols-2 gap-gutter relative z-10">
+      <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-1 lg:grid-cols-2 gap-gutter relative z-10">
         <div className="flex flex-col justify-center space-y-8">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-secondary-container/20 border border-secondary-container/30 w-fit">
             <span className="w-2 h-2 rounded-full bg-secondary-fixed animate-pulse" />

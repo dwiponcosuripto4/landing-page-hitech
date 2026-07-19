@@ -66,7 +66,7 @@ export default function Testimonials() {
 
   return (
     <section className="py-section-gap">
-      <div className="max-w-container-max mx-auto px-margin-desktop">
+      <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
         <div className="text-center mb-16">
           <h2 className="text-primary font-headline-xl text-headline-xl mb-4">
             Dipercaya oleh Pemimpin Industri

@@ -1,7 +1,7 @@
 export default function CTA() {
   return (
     <section className="py-section-gap">
-      <div className="max-w-container-max mx-auto px-margin-desktop">
+      <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
         <div className="relative rounded-[2.5rem] bg-primary overflow-hidden p-12 md:p-24 text-center">
           <div className="absolute inset-0 opacity-20 pointer-events-none" />
           <div className="relative z-10 max-w-2xl mx-auto">

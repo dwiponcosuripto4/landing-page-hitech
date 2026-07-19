@@ -19,7 +19,7 @@ const services = [
 export default function Services() {
   return (
     <section className="py-section-gap bg-surface-container-low">
-      <div className="max-w-container-max mx-auto px-margin-desktop">
+      <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
         <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
           <div className="space-y-4">
             <h2 className="text-primary font-headline-xl text-headline-xl">Layanan Unggulan Kami</h2>

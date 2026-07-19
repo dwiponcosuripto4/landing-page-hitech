@@ -135,7 +135,7 @@ export default function ProjectGallery() {
 
   return (
     <section className="py-section-gap">
-      <div className="max-w-container-max mx-auto px-margin-desktop">
+      <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
         <div className="flex justify-between items-end mb-12">
           <div>
             <span className="text-secondary font-label-md text-label-md uppercase tracking-widest block mb-2">

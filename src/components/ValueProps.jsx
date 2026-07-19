@@ -19,7 +19,7 @@ const values = [
 export default function ValueProps() {
   return (
     <section className="py-section-gap bg-surface">
-      <div className="max-w-container-max mx-auto px-margin-desktop">
+      <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
         <div className="text-center mb-16 space-y-4">
           <h2 className="text-primary font-headline-xl text-headline-xl">
             Mengapa Bermitra Dengan Kami?

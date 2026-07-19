@@ -78,7 +78,7 @@ function CaseStudy({ study }) {
 export default function CaseStudies() {
   return (
     <section className="py-section-gap bg-surface-container-low">
-      <div className="max-w-container-max mx-auto px-margin-desktop">
+      <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
         <div className="text-center mb-16">
           <h2 className="font-headline-xl text-headline-xl text-primary mb-4">
             Studi Kasus Mendalam

@@ -10,7 +10,7 @@ const footerLegal = ['Kebijakan Privasi', 'Syarat & Ketentuan']
 export default function Footer() {
   return (
     <footer className="bg-tertiary text-on-tertiary">
-      <div className="max-w-container-max mx-auto px-margin-desktop py-section-gap grid grid-cols-1 md:grid-cols-4 gap-gutter">
+      <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-section-gap grid grid-cols-1 md:grid-cols-4 gap-gutter">
         <div className="md:col-span-1">
           <div className="font-headline-lg text-headline-lg font-bold text-on-tertiary mb-6">
             HiTech Aksara
@@ -81,7 +81,7 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <div className="max-w-container-max mx-auto px-margin-desktop py-8 border-t border-on-tertiary/10 text-center text-on-tertiary/50 font-label-md">
+      <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-8 border-t border-on-tertiary/10 text-center text-on-tertiary/50 font-label-md">
         © 2024 PT. HiTech Aksara Digital. All rights reserved.
       </div>
     </footer>

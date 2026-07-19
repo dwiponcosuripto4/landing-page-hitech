@@ -1,7 +1,7 @@
 export default function HomeCTA() {
   return (
     <section className="mb-section-gap">
-      <div className="max-w-container-max mx-auto px-margin-desktop">
+      <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
         <div className="bg-primary-container rounded-3xl p-12 md:p-20 text-center relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-r from-secondary/30 to-transparent" />
           <div className="relative z-10 space-y-8">

@@ -4,7 +4,7 @@ const company = ['Tentang Kami', 'Studi Kasus', 'Karir IT', 'Kebijakan Privasi']
 export default function HomeFooter() {
   return (
     <footer className="bg-tertiary text-on-tertiary">
-      <div className="max-w-container-max mx-auto px-margin-desktop py-section-gap grid grid-cols-1 md:grid-cols-4 gap-gutter">
+      <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-section-gap grid grid-cols-1 md:grid-cols-4 gap-gutter">
         <div className="space-y-6">
           <div className="font-headline-lg text-headline-lg font-bold text-on-tertiary">
             HiTech Aksara Digital
@@ -62,7 +62,7 @@ export default function HomeFooter() {
           </div>
         </div>
       </div>
-      <div className="max-w-container-max mx-auto px-margin-desktop py-8 border-t border-on-tertiary/10 text-center text-on-tertiary/50 font-label-md text-label-md">
+      <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-8 border-t border-on-tertiary/10 text-center text-on-tertiary/50 font-label-md text-label-md">
         © 2024 PT. HiTech Aksara Digital. All rights reserved.
       </div>
     </footer>
